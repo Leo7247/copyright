@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iAnyFeature (Leo7247) License</title>
+    <meta name="description" content="Official Copyright & License terms for iAnyFeature (Leo7247) software repositories.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'SF Pro Text', 'Inter', 'Segoe UI', 'Roboto', 'sans-serif'],
+                        mono: ['SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', 'monospace']
+                    },
+                    colors: {
+                        ios: {
+                            blue: '#007AFF',
+                            purple: '#5856D6',
+                            pink: '#FF2D55',
+                            indigo: '#30B0C7',
+                            darkBg: '#05070e',
+                            lightBg: '#f2f4f8'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* -------------------------------------------------------------
+           FLUID MOVING GRADIENT BACKGROUND (流動極光與液體漸變)
+           ------------------------------------------------------------- */
+        .fluid-bg-container {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+            background-color: #05070e;
+            transition: background-color 0.8s ease;
+        }
+
+        .light .fluid-bg-container {
+            background-color: #eef2f9;
+        }
+
+        /* Multi-layered Animated Gradient Orbs */
+        .fluid-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.75;
+            mix-blend-mode: screen;
+            will-change: transform, opacity;
+            transition: opacity 0.8s ease, filter 0.8s ease;
+        }
+
+        .light .fluid-orb {
+            mix-blend-mode: multiply;
+            opacity: 0.55;
+            filter: blur(80px);
+        }
+
+        /* Orb 1: Electric Blue & Cyan Fluid */
+        .orb-1 {
+            width: 550px;
+            height: 550px;
+            background: radial-gradient(circle, #007aff 0%, #00f2fe 70%, transparent 100%);
+            top: -15%;
+            left: -15%;
+            animation: flowOrb1 18s ease-in-out infinite alternate;
+        }
+
+        /* Orb 2: Deep Violet & Hot Pink Fluid */
+        .orb-2 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, #7000ff 0%, #ff007f 70%, transparent 100%);
+            bottom: -20%;
+            right: -15%;
+            animation: flowOrb2 22s ease-in-out infinite alternate;
+        }
+
+        /* Orb 3: Royal Indigo & Neon Teal Fluid */
+        .orb-3 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, #00d2ff 0%, #3a7bd5 70%, transparent 100%);
+            top: 40%;
+            left: 50%;
+            animation: flowOrb3 15s ease-in-out infinite alternate;
+        }
+
+        /* Orb 4: Magenta & Coral Fluid */
+        .orb-4 {
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, #ff0844 0%, #ffb199 70%, transparent 100%);
+            bottom: 20%;
+            left: -10%;
+            animation: flowOrb4 20s ease-in-out infinite alternate;
+        }
+
+        /* Fluid Animation Keyframes */
+        @keyframes flowOrb1 {
+            0% { transform: translate(0px, 0px) rotate(0deg) scale(1); }
+            33% { transform: translate(120px, 80px) rotate(120deg) scale(1.15); }
+            66% { transform: translate(-50px, 150px) rotate(240deg) scale(0.9); }
+            100% { transform: translate(60px, -40px) rotate(360deg) scale(1.05); }
+        }
+
+        @keyframes flowOrb2 {
+            0% { transform: translate(0px, 0px) rotate(0deg) scale(1); }
+            33% { transform: translate(-140px, -100px) rotate(-120deg) scale(1.1); }
+            66% { transform: translate(-80px, 60px) rotate(-240deg) scale(0.85); }
+            100% { transform: translate(50px, -120px) rotate(-360deg) scale(1.05); }
+        }
+
+        @keyframes flowOrb3 {
+            0% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+            50% { transform: translate(-35%, -65%) scale(1.25) rotate(180deg); }
+            100% { transform: translate(-65%, -35%) scale(0.85) rotate(360deg); }
+        }
+
+        @keyframes flowOrb4 {
+            0% { transform: translate(0, 0) scale(0.9); }
+            50% { transform: translate(100px, -120px) scale(1.2); }
+            100% { transform: translate(-40px, 80px) scale(1); }
+        }
+
+        /* Ambient Glass Mesh Pattern */
+        .ambient-mesh {
+            position: fixed;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1.5px, transparent 1.5px);
+            background-size: 28px 28px;
+            opacity: 0.5;
+        }
+        .light .ambient-mesh {
+            background-image: radial-gradient(rgba(0, 0, 0, 0.04) 1.5px, transparent 1.5px);
+            opacity: 0.7;
+        }
+
+        /* -------------------------------------------------------------
+           iOS LIQUID GLASS EFFECT (iOS 液體玻璃/毛玻璃)
+           ------------------------------------------------------------- */
+        .liquid-glass {
+            backdrop-filter: blur(36px) saturate(200%);
+            -webkit-backdrop-filter: blur(36px) saturate(200%);
+            border-radius: 28px;
+            transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+
+        /* Specular Edge Highlight Reflection */
+        .liquid-glass::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 28px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.05) 40%, rgba(255,255,255,0.02) 60%, rgba(255,255,255,0.2) 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        /* Dark Mode Liquid Glass Card */
+        .dark .liquid-glass {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 
+                0 30px 60px -12px rgba(0, 0, 0, 0.6),
+                0 18px 36px -18px rgba(0, 0, 0, 0.7),
+                inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        /* Light Mode Liquid Glass Card */
+        .light .liquid-glass {
+            background: rgba(255, 255, 255, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 0, 0, 0.08),
+                0 10px 20px -5px rgba(0, 0, 0, 0.04),
+                inset 0 1px 2px 0 rgba(255, 255, 255, 0.9);
+        }
+
+        /* Glowing Logo Glass Ring */
+        .logo-glass-ring {
+            position: relative;
+            border-radius: 9999px;
+            padding: 4px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.5), rgba(0,122,255,0.3), rgba(255,45,85,0.4));
+            box-shadow: 0 0 35px rgba(0, 122, 251, 0.4), inset 0 0 15px rgba(255,255,255,0.5);
+            animation: pulseLogoGlow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulseLogoGlow {
+            0% { box-shadow: 0 0 25px rgba(0, 122, 251, 0.3), inset 0 0 10px rgba(255,255,255,0.4); }
+            100% { box-shadow: 0 0 45px rgba(255, 45, 85, 0.6), inset 0 0 20px rgba(255,255,255,0.7); }
+        }
+
+        /* High Visibility Warning Glass Card */
+        .warning-liquid-card {
+            position: relative;
+            backdrop-filter: blur(40px) saturate(220%);
+            -webkit-backdrop-filter: blur(40px) saturate(220%);
+            border-radius: 28px;
+            transition: all 0.4s ease;
+        }
+
+        .dark .warning-liquid-card {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.12) 0%, rgba(185, 28, 28, 0.05) 100%);
+            border: 1px solid rgba(248, 113, 113, 0.35);
+            box-shadow: 0 0 30px rgba(239, 68, 68, 0.25), inset 0 1px 1px rgba(254, 202, 202, 0.3);
+        }
+
+        .light .warning-liquid-card {
+            background: linear-gradient(135deg, rgba(254, 226, 226, 0.85) 0%, rgba(254, 202, 202, 0.6) 100%);
+            border: 1px solid rgba(248, 113, 113, 0.6);
+            box-shadow: 0 15px 35px rgba(239, 68, 68, 0.12), inset 0 1px 2px #ffffff;
+        }
+
+        /* Pulsing Border Glow for Warning */
+        @keyframes warningPulse {
+            0%, 100% { border-color: rgba(239, 68, 68, 0.4); box-shadow: 0 0 20px rgba(239, 68, 68, 0.2); }
+            50% { border-color: rgba(239, 68, 68, 0.8); box-shadow: 0 0 40px rgba(239, 68, 68, 0.45); }
+        }
+        .warning-pulse-border {
+            animation: warningPulse 3s infinite ease-in-out;
+        }
+
+        /* Interactive Sub-Cards */
+        .prohibited-card {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .dark .prohibited-card {
+            background: rgba(244, 63, 94, 0.05);
+            border: 1px solid rgba(244, 63, 94, 0.25);
+        }
+        .light .prohibited-card {
+            background: rgba(254, 242, 242, 0.85);
+            border: 1px solid rgba(252, 165, 165, 0.7);
+        }
+        .prohibited-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .permitted-card {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .dark .permitted-card {
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+        }
+        .light .permitted-card {
+            background: rgba(236, 253, 245, 0.85);
+            border: 1px solid rgba(110, 231, 183, 0.7);
+        }
+        .permitted-card:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 99px;
+        }
+        .light ::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 99px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #007aff;
+        }
+    </style>
+</head>
+<body class="text-gray-100 min-h-screen transition-colors duration-500 font-sans relative antialiased selection:bg-ios-blue selection:text-white">
+
+    <!-- Fluid Moving Gradient Background -->
+    <div class="fluid-bg-container">
+        <div class="fluid-orb orb-1"></div>
+        <div class="fluid-orb orb-2"></div>
+        <div class="fluid-orb orb-3"></div>
+        <div class="fluid-orb orb-4"></div>
+    </div>
+    <div class="ambient-mesh"></div>
+
+    <!-- Main Outer Wrapper -->
+    <div class="relative z-10 flex flex-col min-h-screen">
+
+        <!-- iOS Style Floating Header / Top Navigation Bar -->
+        <header class="sticky top-0 z-50 backdrop-blur-2xl transition-all duration-300 border-b border-white/10 dark:border-white/10 light:border-gray-200/80 dark:bg-gray-950/40 light:bg-white/60">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+                
+                <!-- Left: Branding & Icon -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl overflow-hidden bg-gradient-to-tr from-ios-blue to-ios-purple p-[1.5px] shadow-lg shadow-ios-blue/30 flex-shrink-0">
+                        <img src="https://i.imgur.com/rgJPglO.png" 
+                             alt="iAnyFeature Logo" 
+                             class="w-full h-full object-cover rounded-[10px]"
+                             onerror="this.onerror=null; this.src='https://placehold.co/100x100/007aff/ffffff?text=iA';" />
+                    </div>
+                    <div>
+                        <h1 class="text-base sm:text-lg font-bold tracking-tight text-white dark:text-white light:text-gray-900 leading-tight">
+                            iAnyFeature <span class="text-ios-blue dark:text-ios-blue light:text-blue-600 font-normal">(Leo7247)</span>
+                        </h1>
+                        <p class="text-[11px] text-gray-400 dark:text-gray-400 light:text-gray-500 font-medium">Software License & Terms</p>
+                    </div>
+                </div>
+
+                <!-- Right Actions: GitHub & Theme Toggle -->
+                <div class="flex items-center space-x-3">
+                    
+                    <!-- GitHub Link Button -->
+                    <a href="https://github.com/Leo7247/" target="_blank" rel="noopener noreferrer" 
+                       class="inline-flex items-center space-x-2 px-3.5 py-2 rounded-2xl text-xs font-semibold transition-all duration-300 liquid-glass hover:scale-105 active:scale-95 text-gray-200 dark:text-gray-200 light:text-gray-800">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                        </svg>
+                        <span class="hidden sm:inline">Visit Repository</span>
+                        <span class="sm:hidden">GitHub</span>
+                    </a>
+
+                    <!-- iOS Theme Switcher Toggle -->
+                    <button id="themeToggleBtn" aria-label="Toggle Theme" 
+                            class="p-2.5 rounded-2xl liquid-glass text-amber-400 dark:text-amber-300 light:text-indigo-600 hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center">
+                        <!-- Sun Icon for Dark Mode -->
+                        <svg id="sunIcon" class="w-5 h-5 block dark:block light:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                        <!-- Moon Icon for Light Mode -->
+                        <svg id="moonIcon" class="w-5 h-5 hidden dark:hidden light:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                    </button>
+
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Page Content -->
+        <main class="flex-grow max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-8">
+
+            <!-- 1. LOGO & BRANDING HEADER BLOCK -->
+            <div class="text-center space-y-5 flex flex-col items-center">
+                
+                <!-- Main Icon with Glowing Glass Ring -->
+                <div class="logo-glass-ring inline-block">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden bg-slate-900 flex items-center justify-center p-1 backdrop-blur-xl">
+                        <img src="https://i.imgur.com/rgJPglO.png" 
+                             alt="iAnyFeature (Leo7247) Main Icon" 
+                             class="w-full h-full object-cover rounded-full shadow-inner"
+                             onerror="this.onerror=null; this.src='https://placehold.co/150x150/007aff/ffffff?text=iAnyFeature';" />
+                    </div>
+                </div>
+
+                <!-- Main Header Title -->
+                <div class="space-y-2">
+                    <h2 class="text-3xl sm:text-5xl font-black tracking-tight text-white dark:text-white light:text-gray-900 drop-shadow-md">
+                        iAnyFeature (Leo7247) License
+                    </h2>
+                    <p class="text-sm sm:text-base text-gray-300 dark:text-gray-300 light:text-gray-600 font-medium max-w-xl mx-auto">
+                        Official Copyright Notice & Software Distribution Agreement
+                    </p>
+                </div>
+            </div>
+
+            <!-- 2. TOP NOTICE BLOCK (HIGHLIGHTED ALERT) -->
+            <div class="warning-liquid-card warning-pulse-border p-6 sm:p-8 space-y-4">
+                <div class="flex items-start gap-4">
+                    <!-- Shield / Warning Icon -->
+                    <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-red-500/20 border border-red-500/40 flex items-center justify-center text-red-400 light:text-red-600 shadow-lg">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                        </svg>
+                    </div>
+
+                    <!-- Notice Message -->
+                    <div class="space-y-2 flex-grow">
+                        <div class="flex items-center space-x-2">
+                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-black tracking-widest uppercase bg-red-500 text-white shadow-sm">
+                                MANDATORY RESTRICTION NOTICE
+                            </span>
+                        </div>
+                        <p class="text-base sm:text-lg font-bold leading-relaxed text-red-100 dark:text-red-100 light:text-red-950">
+                            ALL PRODUCTS IN THE REPOSITORY (<a href="https://github.com/Leo7247/" target="_blank" rel="noopener noreferrer" class="underline decoration-red-400 hover:text-white light:hover:text-red-700 transition-colors font-mono">https://github.com/Leo7247/</a>) IS BELONGS TO iAnyFeature (Leo7247, Not Castiel Lee), YOU ARE NOT ALLOWED WITH THE ACTIONS BELOW :
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Jump Pill Bar & Copy Action Button -->
+            <div class="flex flex-wrap items-center justify-between gap-3 p-3 rounded-2xl liquid-glass">
+                
+                <!-- Quick Navigation Pills -->
+                <div class="flex flex-wrap items-center gap-1.5 text-xs font-semibold">
+                    <span class="text-gray-400 light:text-gray-500 px-2 text-[11px] font-uppercase tracking-wider uppercase hidden sm:inline">Navigation:</span>
+                    <a href="#section-prohibited" class="px-3 py-1.5 rounded-xl bg-red-500/10 text-red-400 light:text-red-600 hover:bg-red-500/20 transition-all">1. Prohibited</a>
+                    <a href="#section-permitted" class="px-3 py-1.5 rounded-xl bg-emerald-500/10 text-emerald-400 light:text-emerald-600 hover:bg-emerald-500/20 transition-all">2. Permitted</a>
+                    <a href="#section-termination" class="px-3 py-1.5 rounded-xl bg-amber-500/10 text-amber-400 light:text-amber-600 hover:bg-amber-500/20 transition-all">3. Termination</a>
+                    <a href="#section-disclaimer" class="px-3 py-1.5 rounded-xl bg-blue-500/10 text-blue-400 light:text-blue-600 hover:bg-blue-500/20 transition-all">4. Disclaimer</a>
+                </div>
+
+                <!-- Copy License Button -->
+                <button id="copyBtn" 
+                        class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-4 py-2 rounded-xl text-xs font-bold tracking-wide uppercase bg-gradient-to-r from-ios-blue to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white shadow-lg shadow-ios-blue/30 active:scale-95 transition-all">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                    </svg>
+                    <span>Copy License</span>
+                </button>
+            </div>
+
+            <!-- 3. FULL LICENSE TEXT CONTENT CARD -->
+            <article class="liquid-glass p-6 sm:p-10 space-y-10 relative">
+
+                <!-- License Heading Header -->
+                <div class="border-b border-white/10 dark:border-white/10 light:border-gray-200 pb-8 space-y-3">
+                    <div class="flex items-center justify-between flex-wrap gap-2">
+                        <h1 class="text-3xl sm:text-4xl font-black tracking-tight text-white dark:text-white light:text-gray-900 font-mono">
+                            # LICENSE
+                        </h1>
+                        <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-white/10 dark:bg-white/10 light:bg-gray-200 text-gray-200 dark:text-gray-200 light:text-gray-700">
+                            Effective 2026
+                        </span>
+                    </div>
+
+                    <p class="text-lg font-bold text-ios-blue dark:text-ios-blue light:text-blue-600">
+                        Copyright (c) 2026 iAnyFeature. All rights reserved.
+                    </p>
+
+                    <div class="pt-4 space-y-3 text-sm sm:text-base leading-relaxed text-gray-200 dark:text-gray-200 light:text-gray-700">
+                        <p>
+                            This software and its associated source code are protected by copyright law and international treaties. Unauthorized use, reproduction, or distribution of this software, or any portion of it, is strictly prohibited.
+                        </p>
+                        <p class="font-medium text-gray-100 dark:text-gray-100 light:text-gray-900">
+                            By accessing, viewing, or interacting with this repository, you agree to the following terms and conditions:
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SECTION 1: PROHIBITED ACTIONS -->
+                <section id="section-prohibited" class="scroll-mt-28 space-y-5">
+                    <div class="flex items-center space-x-3">
+                        <span class="w-8 h-8 rounded-xl bg-red-500/20 text-red-400 light:text-red-600 font-black flex items-center justify-center text-sm border border-red-500/30">
+                            1
+                        </span>
+                        <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-red-400 dark:text-red-400 light:text-red-600">
+                            Prohibited Actions
+                        </h3>
+                    </div>
+                    
+                    <p class="text-sm text-gray-300 dark:text-gray-300 light:text-gray-600">
+                        You are strictly prohibited from performing the following actions:
+                    </p>
+
+                    <div class="grid gap-4">
+                        
+                        <!-- Item 1: External Duplication -->
+                        <div class="prohibited-card rounded-2xl p-5 space-y-2">
+                            <div class="flex items-center space-x-2 text-red-400 dark:text-red-400 light:text-red-600 font-bold">
+                                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/>
+                                </svg>
+                                <h4>External Duplication</h4>
+                            </div>
+                            <p class="text-sm text-gray-200 dark:text-gray-200 light:text-gray-800 leading-relaxed pl-7">
+                                Downloading, copying, cloning, or duplicating the source code or any part of this software outside of the official GitHub platform.
+                            </p>
+                        </div>
+
+                        <!-- Item 2: Modification -->
+                        <div class="prohibited-card rounded-2xl p-5 space-y-2">
+                            <div class="flex items-center space-x-2 text-red-400 dark:text-red-400 light:text-red-600 font-bold">
+                                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/>
+                                </svg>
+                                <h4>Modification</h4>
+                            </div>
+                            <p class="text-sm text-gray-200 dark:text-gray-200 light:text-gray-800 leading-relaxed pl-7">
+                                Modifying, altering, changing, tampering with, or creating derivative works based on this software or its source code.
+                            </p>
+                        </div>
+
+                        <!-- Item 3: Distribution -->
+                        <div class="prohibited-card rounded-2xl p-5 space-y-2">
+                            <div class="flex items-center space-x-2 text-red-400 dark:text-red-400 light:text-red-600 font-bold">
+                                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/>
+                                </svg>
+                                <h4>Distribution</h4>
+                            </div>
+                            <p class="text-sm text-gray-200 dark:text-gray-200 light:text-gray-800 leading-relaxed pl-7">
+                                Redistributing, sharing, publishing, hosting, mirroring, or selling this software, its source code, or its compiled parts anywhere else, online or offline.
+                            </p>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- SECTION 2: PERMITTED USE -->
+                <section id="section-permitted" class="scroll-mt-28 space-y-5">
+                    <div class="flex items-center space-x-3">
+                        <span class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 light:text-emerald-600 font-black flex items-center justify-center text-sm border border-emerald-500/30">
+                            2
+                        </span>
+                        <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-emerald-400 dark:text-emerald-400 light:text-emerald-600">
+                            Permitted Use
+                        </h3>
+                    </div>
+
+                    <div class="permitted-card rounded-2xl p-5 space-y-2">
+                        <div class="flex items-center space-x-2 text-emerald-400 dark:text-emerald-400 light:text-emerald-600 font-bold">
+                            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <h4>GitHub Interaction</h4>
+                        </div>
+                        <p class="text-sm text-gray-200 dark:text-gray-200 light:text-gray-800 leading-relaxed pl-7">
+                            You may view the source code, fork the repository within the GitHub platform for personal reference, and contribute to the original repository via Pull Requests, provided no code is taken outside of GitHub.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- SECTION 3: TERMINATION -->
+                <section id="section-termination" class="scroll-mt-28 space-y-5">
+                    <div class="flex items-center space-x-3">
+                        <span class="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-400 light:text-amber-600 font-black flex items-center justify-center text-sm border border-amber-500/30">
+                            3
+                        </span>
+                        <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-amber-400 dark:text-amber-400 light:text-amber-600">
+                            Termination
+                        </h3>
+                    </div>
+
+                    <div class="rounded-2xl p-6 bg-amber-500/10 dark:bg-amber-500/10 light:bg-amber-50 border border-amber-500/20 text-sm text-gray-200 dark:text-gray-200 light:text-gray-800 leading-relaxed space-y-2">
+                        <p>
+                            Any breach of this license automatically terminates your permission to view or interact with this software. The copyright holder reserves the right to take legal action or submit takedown notices (including DMCA notices) for any unauthorized distribution, modification, or external hosting of this software.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- SECTION 4: DISCLAIMER OF WARRANTY -->
+                <section id="section-disclaimer" class="scroll-mt-28 space-y-5">
+                    <div class="flex items-center space-x-3">
+                        <span class="w-8 h-8 rounded-xl bg-blue-500/20 text-blue-400 light:text-blue-600 font-black flex items-center justify-center text-sm border border-blue-500/30">
+                            4
+                        </span>
+                        <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-blue-400 dark:text-blue-400 light:text-blue-600">
+                            Disclaimer of Warranty
+                        </h3>
+                    </div>
+
+                    <div class="rounded-2xl p-5 bg-black/40 dark:bg-black/40 light:bg-gray-100 border border-white/10 dark:border-white/10 light:border-gray-300 font-mono text-xs sm:text-sm leading-relaxed text-gray-300 dark:text-gray-300 light:text-gray-700 tracking-wide select-all overflow-x-auto">
+                        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+                    </div>
+                </section>
+
+            </article>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="mt-auto py-8 text-center text-xs text-gray-400 dark:text-gray-400 light:text-gray-600 border-t border-white/10 dark:border-white/10 light:border-gray-200 relative z-10">
+            <div class="max-w-4xl mx-auto px-4 space-y-2">
+                <p class="font-semibold text-sm text-gray-200 dark:text-gray-200 light:text-gray-800">
+                    © 2026 iAnyFeature (Leo7247). All Rights Reserved.
+                </p>
+                <p class="text-gray-400 dark:text-gray-400 light:text-gray-500">
+                    Official Software License • Hosted via GitHub Platform
+                </p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Toast Notification Banner -->
+    <div id="toast" 
+         class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 px-6 py-3.5 rounded-full liquid-glass bg-gray-900/90 dark:bg-gray-900/90 light:bg-white/90 text-white dark:text-white light:text-gray-900 font-medium text-xs sm:text-sm shadow-2xl border border-ios-blue/50 flex items-center space-x-3 opacity-0 pointer-events-none transition-all duration-300 transform translate-y-8">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span id="toastText">License copied to clipboard!</span>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Raw License Text Content for Clipboard Copy
+        const fullLicenseString = `# LICENSE
+
+Copyright (c) 2026 iAnyFeature. All rights reserved.
+
+This software and its associated source code are protected by copyright law and international treaties. Unauthorized use, reproduction, or distribution of this software, or any portion of it, is strictly prohibited.
+
+By accessing, viewing, or interacting with this repository, you agree to the following terms and conditions:
+
+### 1. Prohibited Actions
+You are strictly prohibited from performing the following actions:
+* External Duplication: Downloading, copying, cloning, or duplicating the source code or any part of this software outside of the official GitHub platform.
+* Modification: Modifying, altering, changing, tampering with, or creating derivative works based on this software or its source code.
+* Distribution: Redistributing, sharing, publishing, hosting, mirroring, or selling this software, its source code, or its compiled parts anywhere else, online or offline.
+
+### 2. Permitted Use
+* GitHub Interaction: You may view the source code, fork the repository within the GitHub platform for personal reference, and contribute to the original repository via Pull Requests, provided no code is taken outside of GitHub.
+
+### 3. Termination
+Any breach of this license automatically terminates your permission to view or interact with this software. The copyright holder reserves the right to take legal action or submit takedown notices (including DMCA notices) for any unauthorized distribution, modification, or external hosting of this software.
+
+### 4. Disclaimer of Warranty
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.`;
+
+        // Theme Toggle Handler
+        const htmlElement = document.documentElement;
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+
+        function applyTheme(mode) {
+            if (mode === 'light') {
+                htmlElement.classList.remove('dark');
+                htmlElement.classList.add('light');
+                localStorage.setItem('ianyfeature_theme', 'light');
+            } else {
+                htmlElement.classList.remove('light');
+                htmlElement.classList.add('dark');
+                localStorage.setItem('ianyfeature_theme', 'dark');
+            }
+        }
+
+        // Initialize Theme
+        const storedTheme = localStorage.getItem('ianyfeature_theme') || 'dark';
+        applyTheme(storedTheme);
+
+        themeToggleBtn.addEventListener('click', () => {
+            const currentIsDark = htmlElement.classList.contains('dark');
+            applyTheme(currentIsDark ? 'light' : 'dark');
+        });
+
+        // Toast Notification System
+        const toastEl = document.getElementById('toast');
+        const toastTextEl = document.getElementById('toastText');
+        let toastTimer = null;
+
+        function triggerToast(msg) {
+            toastTextEl.innerText = msg;
+            toastEl.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-8');
+            toastEl.classList.add('opacity-100', 'translate-y-0');
+
+            if (toastTimer) clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+                toastEl.classList.remove('opacity-100', 'translate-y-0');
+                toastEl.classList.add('opacity-0', 'pointer-events-none', 'translate-y-8');
+            }, 3000);
+        }
+
+        // Copy License Action
+        const copyBtn = document.getElementById('copyBtn');
+        copyBtn.addEventListener('click', () => {
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(fullLicenseString).then(() => {
+                    triggerToast('License copied to clipboard!');
+                }).catch(() => {
+                    fallbackCopy(fullLicenseString);
+                });
+            } else {
+                fallbackCopy(fullLicenseString);
+            }
+        });
+
+        function fallbackCopy(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.left = '-9999px';
+            document.body.appendChild(textarea);
+            textarea.focus();
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                triggerToast('License copied to clipboard!');
+            } catch (err) {
+                triggerToast('Please copy license manually.');
+            }
+            document.body.removeChild(textarea);
+        }
+    </script>
+</body>
+</html>
